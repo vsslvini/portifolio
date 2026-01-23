@@ -13,11 +13,11 @@ let theme = createTheme({
     fontFamily: "Atkinson Hyperlegible Mono",
 
     h1: {
-      fontSize: "4.5rem",
+      fontSize: "4.0rem",
     },
 
     h2: {
-      fontSize: "3rem",
+      fontSize: "2.4rem",
     },
   },
 });
