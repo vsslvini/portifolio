@@ -5,15 +5,28 @@ import EmailIcon from "@mui/icons-material/Email";
 import Avatar from "../../../../assets/images/avatar.jpeg";
 import StyledButton from "../../../../components/StyledButton/StyledButton";
 import { AnimatedBackground } from "../../../../components/AnimatedBackground";
+import { red } from "@mui/material/colors";
 
 const Hero = () => {
   const StyledHero = styled("div")(({ theme }) => ({
     backgroundColor: theme.palette.primary.main,
     color: "white",
-    height: "100vh",
+    minHeight: "100vh",
     display: "flex",
     alignItems: "center",
     overflow: "hidden",
+    // [theme.breakpoints.up("xs")]: {
+    //   paddingTop: "100px",
+    //   backgroundColor: "red",
+    // },
+    // [theme.breakpoints.up("sm")]: {
+    //   paddingTop: "100px",
+    //   backgroundColor: "blue",
+    // },
+    // [theme.breakpoints.up("md")]: {
+    //   paddingTop: "100px",
+    //   backgroundColor: "blue",
+    // },
   }));
 
   const StyledImage = styled("img")(({ theme }) => ({
@@ -79,7 +92,7 @@ const Hero = () => {
                   display="flex"
                   justifyContent="center"
                 >
-                  <StyledButton>
+                  <StyledButton onClick={() => console.log("Download")}>
                     <DownloadForOfflineIcon />
                     <Typography>
                       Download CV
@@ -91,7 +104,7 @@ const Hero = () => {
                   display="flex"
                   justifyContent="center"
                 >
-                  <StyledButton>
+                  <StyledButton onClick={() => console.log("Contate  me")}>
                     <EmailIcon />
                     <Typography>
                       Contact me
