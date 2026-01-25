@@ -5,7 +5,6 @@ import EmailIcon from "@mui/icons-material/Email";
 import Avatar from "../../../../assets/images/avatar.jpeg";
 import StyledButton from "../../../../components/StyledButton/StyledButton";
 import { AnimatedBackground } from "../../../../components/AnimatedBackground";
-import { red } from "@mui/material/colors";
 
 const Hero = () => {
   const StyledHero = styled("div")(({ theme }) => ({
