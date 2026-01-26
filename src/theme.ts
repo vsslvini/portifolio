@@ -2,18 +2,28 @@ import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
 let theme = createTheme({
   palette: {
+    mode: "dark",
     primary: {
-      main: "#232323",
+      main: "#2f8af5",
     },
     secondary: {
-      main: "#4f8e3e",
+      main: "#f5f5f5",
     },
+    background: {
+      default: "#060910", 
+      paper: "#0a0f1c" 
+    },
+    text: {
+      primary: "#ffffff",
+      secondary: "#aebbc9"
+    }
   },
   typography: {
     fontFamily: "Atkinson Hyperlegible Mono",
 
     h1: {
-      fontSize: "4.0rem",
+      fontWeight: 700,
+      letterSpacing: "-0.02em",
     },
 
     h2: {
