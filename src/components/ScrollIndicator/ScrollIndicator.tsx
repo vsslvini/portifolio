@@ -17,7 +17,7 @@ const ScrollWrapper = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   alignItems: "center",
   gap: theme.spacing(1),
-  zIndex: 2,
+  zIndex: 3,
   animation: `${float} 2s infinite ease-in-out`,
   cursor: "pointer", // Adiciona feedback visual de que é clicável
   userSelect: "none" // Evita selecionar o texto sem querer

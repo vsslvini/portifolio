@@ -12,6 +12,7 @@ import { HeroBackground, StyledHeroWrapper } from "./HeroBackground";
 import TechContainer from "../../../../components/ui/TechContainer/TechContainer";
 import ScrollIndicator from "../../../../components/ScrollIndicator/ScrollIndicator";
 import SocialButton from "../../../../components/SocialButton/SocialButton";
+import { SectionFade } from "../../../../components/ui/SectionFade/SectionFade";
 
 const Hero = () => {
   return (
@@ -74,7 +75,7 @@ const Hero = () => {
 
       {/* 3. Indicador de Scroll Animado */}
       <ScrollIndicator />
-
+      <SectionFade />
     </StyledHeroWrapper>
   )
 }
