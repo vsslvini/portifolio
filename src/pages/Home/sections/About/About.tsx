@@ -23,7 +23,10 @@ const About = () => {
           {/* Lado da imagem*/}
 
           <Grid size={{ xs: 12, md: 7 }}>
-            <Box display="flex" flexDirection="column" gap={3}>
+            <Box display="flex" flexDirection="column" gap={3} sx={{
+              px: { xs: 4, md: 0 },
+              textAlign: { xs: "center", md: "left"},
+            }}>
               {/* Label do topo - Usando subtitle1 (Mono) conforme seu tema */}
               <Typography variant="subtitle1" color="primary">
               // 01. About Me
@@ -62,7 +65,7 @@ const About = () => {
         </Grid>
 
 
-      </Container>
+      </Container >
     </>
   )
 }
