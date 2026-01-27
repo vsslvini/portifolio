@@ -9,7 +9,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import { HeroBackground, StyledHeroWrapper } from "./HeroBackground";
 
 // 2. Componentes UI Globais (navegamos 4 pastas para trás para chegar a src/components)
-import TechContainer from "../../../../components/TechContainer/TechContainer";
+import TechContainer from "../../../../components/ui/TechContainer/TechContainer";
 import ScrollIndicator from "../../../../components/ScrollIndicator/ScrollIndicator";
 import SocialButton from "../../../../components/SocialButton/SocialButton";
 
