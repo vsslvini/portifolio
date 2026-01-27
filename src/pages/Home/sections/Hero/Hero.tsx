@@ -1,142 +1,82 @@
-import { Opacity } from "@mui/icons-material";
-import { Box, Container, styled } from "@mui/material"
-import { Typography } from "@mui/material"
-import { alpha } from "@mui/material/styles";
+import { Typography, Stack } from "@mui/material";
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
 
+// --- IMPORTS MODULARES (Ajustados para a tua estrutura) ---
 
-const StyledHero = styled("div")(({ theme }) => ({
-  height: "100vh",
-  width: "100%",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  backgroundColor: theme.palette.background.default,
-  position: "relative",
-  overflow: "hidden",
-}));
+// 1. Fundo (está na mesma pasta do Hero)
+import { HeroBackground, StyledHeroWrapper } from "./HeroBackground";
 
-const BackgroundGlow = styled(Box)(({ theme }) => ({
-  position: "absolute",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  background: `
-   radial-gradient(
-      circle at 50% 0%,       
-      ${alpha(theme.palette.primary.main, 0.2)} 0%,
-      transparent 70% )
-  `,
-  pointerEvents: "none",
-  zIndex: 0,
-}));
-
-const BlueprintGrid = styled(Box)(({ theme }) => ({
-  position: "absolute",
-  top: 0,
-  left: 0,
-  width: "100%",
-  height: "100%",
-  zIndex: 1,
-  opacity: 0.3,
-  backgroundImage: `
-    /* Linhas Verticais */
-    linear-gradient(${theme.palette.text.primary} 1px, transparent 1px),
-    /* Linhas Horizontais */
-    linear-gradient(90deg, ${theme.palette.text.primary} 1px, transparent 1px)
-  `,
-  backgroundSize: "80px 80px",
-  maskImage: "radial-gradient(ellipse at center, transparent 20%, black 90%)",
-  WebkitMaskImage: "radial-gradient(ellipse at center, transparent 15%, black 90%)", // Para compatibilidade
-  pointerEvents: "none",
-
-}));
-
-const TechContainer = styled(Container)(({ theme }) => ({
-  position: "relative",
-  zIndex: 2,
-  padding: theme.spacing(4),
-  "&::before, &::after": {
-    content: '""',
-    position: "absolute",
-    top: 0,
-    bottom: 0,
-    width: "1px",
-    background: `linear-gradient(
-      to bottom,
-      transparent,
-      ${theme.palette.primary.main},
-      transparent
-    )`,
-    Opacity: 0.5,
-  },
-  "&::before": { left: 0 },
-  "&::after": { right: 0 },
-}));
-
-const CornerMarker = styled(Box)(({ theme, top, left, right, bottom }: any) => ({
-  position: "absolute",
-  width: "10px",
-  height: "10px",
-  borderColor: theme.palette.primary.main,
-  borderStyle: "solid",
-  borderWidth: 0,
-  // Props condicionais para desenhar apenas os cantos necessários
-  borderTopWidth: top ? "2px" : 0,
-  borderBottomWidth: bottom ? "2px" : 0,
-  borderLeftWidth: left ? "2px" : 0,
-  borderRightWidth: right ? "2px" : 0,
-
-  top: top ? "-1px" : "auto",
-  bottom: bottom ? "-1px" : "auto",
-  left: left ? "-1px" : "auto",
-  right: right ? "-1px" : "auto",
-
-  opacity: 0.8,
-  boxShadow: `0 0 8px ${theme.palette.primary.main}`, // Glow sutil no canto
-}));
+// 2. Componentes UI Globais (navegamos 4 pastas para trás para chegar a src/components)
+import TechContainer from "../../../../components/TechContainer/TechContainer";
+import ScrollIndicator from "../../../../components/ScrollIndicator/ScrollIndicator";
+import SocialButton from "../../../../components/SocialButton/SocialButton";
 
 const Hero = () => {
-
   return (
-    <>
-      <StyledHero>
+    <StyledHeroWrapper>
+      
+      {/* 1. Camada de Fundo (Grid + Glow) */}
+      <HeroBackground />
 
-        <BackgroundGlow />
+      {/* 2. Container Central com as Bordas Técnicas */}
+      <TechContainer>
 
-        <BlueprintGrid />
+        <Typography variant="subtitle1" gutterBottom>
+          Welcome to
+        </Typography>
 
-        <TechContainer
-          maxWidth="md"
-          sx={{
-            textAlign: "center",
-          }}
+        <Typography variant="h1" gutterBottom>
+          Vinicius Alencar
+        </Typography>
+
+        <Typography variant="h2" sx={{ mb: 4 }}>
+          &lt;Developer Portfolio /&gt;
+        </Typography>
+
+        {/* Barra Social */}
+        <Stack
+          direction="row"
+          spacing={2}
+          justifyContent="center"
+          sx={{ position: "relative", zIndex: 10, mt: 4 }}
         >
+          {/* Mantemos o component="a" para o link funcionar corretamente */}
+          <SocialButton 
+            component="a" 
+            href="https://github.com/vsslvini/" 
+            target="_blank"
+            aria-label="GitHub"
+          >
+            <GitHubIcon />
+          </SocialButton>
 
-          <CornerMarker top left />
-          <CornerMarker top right />
-          <CornerMarker bottom left />
-          <CornerMarker bottom right />
+          <SocialButton 
+            component="a" 
+            href="https://linkedin.com/in/vsslvini" 
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <LinkedInIcon />
+          </SocialButton>
 
-          <Typography variant="subtitle1" gutterBottom>
-            Welcome to
-          </Typography>
+          <SocialButton 
+            component="a" 
+            href="mailto:vsslviniciussousa@gmail.com"
+            aria-label="Email"
+          >
+            <EmailIcon />
+          </SocialButton>
+        </Stack>
 
-          <Typography variant="h1" gutterBottom>
-            Vinicius Alencar
-          </Typography>
+      </TechContainer>
 
-          <Typography variant="h2">
-            &lt;Developer Portfolio /&gt;
-          </Typography>
+      {/* 3. Indicador de Scroll Animado */}
+      <ScrollIndicator />
 
-        </TechContainer>
-
-
-      </StyledHero >
-    </>
+    </StyledHeroWrapper>
   )
-
 }
 
-export default Hero
+export default Hero;
