@@ -12,10 +12,10 @@ const TechStack: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<TechItem | null>(null);
 
   return (
-    <Box id="tech-stack" sx={{ py: 10, position: "relative" }}>
+    <Box id="tech-stack" sx={{ py: 10, position: "relative" }} gap={1.5}>
       <Container maxWidth="lg">
         {/* Cabeçalho (Pode ser componentizado no futuro, mas ok por enquanto) */}
-        <Box mb={6} textAlign="center">
+        <Box mb={6} textAlign="center" gap={3}>
           <Typography variant="subtitle1" sx={{ color: "primary.main", mb: 1 }}>
             // 02. SYSTEM CAPACITY
           </Typography>
