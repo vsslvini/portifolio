@@ -6,6 +6,12 @@ const StyledContainer = styled(Container)(({ theme }) => ({
   position: "relative",
   zIndex: 2,
   padding: theme.spacing(4),
+  margin: '0 auto',
+  width: 'calc(100% - 32px)', // Garante 16px de cada lado em telas pequenas
+
+  [theme.breakpoints.up('md')]: {
+    width: '100%', // Volta ao normal em telas maiores
+  },
   "&::before, &::after": {
     content: '""',
     position: "absolute",
@@ -55,7 +61,6 @@ const CornerMarker = styled(Box, {
 
   opacity: 0.8,
   boxShadow: `0 0 8px ${theme.palette.primary.main}`,
-  px: { xs: 2, md: 0 }
 }));
 
 interface TechFrameProps {
