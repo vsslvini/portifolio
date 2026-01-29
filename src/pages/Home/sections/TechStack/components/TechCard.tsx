@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Tooltip, Zoom } from "@mui/material";
-import type { TechItem } from "./TechData";
+import type { TechItem } from "../data/TechData";
 import { useTheme } from "@mui/material/styles";
 import { motion } from "framer-motion";
 
