@@ -55,6 +55,7 @@ const CornerMarker = styled(Box, {
 
   opacity: 0.8,
   boxShadow: `0 0 8px ${theme.palette.primary.main}`,
+  px: { xs: 2, md: 0 }
 }));
 
 interface TechFrameProps {
