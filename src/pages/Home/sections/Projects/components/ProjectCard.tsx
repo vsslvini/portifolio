@@ -19,18 +19,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ item, onClick }) => {
 
       {/* --- CABEÇALHO (Categoria + Título) --- */}
       <motion.div layoutId={`card-header-${item.id}`}>
-
-        {/* Badge da Categoria (Pequeno e sutil acima do título) */}
-        <Stack direction="row" alignItems="center" spacing={0.5} sx={{ mb: 1 }}>
-          <LocalOfferIcon sx={{ fontSize: 14, color: theme.palette.text.secondary }} />
-          <Typography variant="caption" color="text.secondary" sx={{ textTransform: 'uppercase', letterSpacing: 1 }}>
-            {item.category}
-          </Typography>
-        </Stack>
-
         <Typography variant="h6" fontWeight="bold" gutterBottom>
           {item.title}
         </Typography>
+        {/* Badge da Categoria (Pequeno e sutil acima do título) */}
+        <Stack direction="row" alignItems="center" spacing={0.5} >
+          <LocalOfferIcon sx={{ fontSize: 10, color: theme.palette.text.secondary }} />
+          <Typography variant="caption" fontSize={10} color="text.secondary" sx={{ textTransform: 'uppercase', letterSpacing: 1 }}>
+            {item.category}
+          </Typography>
+        </Stack>
       </motion.div>
 
       {/* --- CORPO (Imagem) --- */}

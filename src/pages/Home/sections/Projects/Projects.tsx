@@ -2,10 +2,12 @@ import React, { useState } from "react"
 import { projectsData, type ProjectItem } from "./data/ProjectData"
 import { Box, Container, Typography } from "@mui/material"
 import ProjectGrid from "./components/ProjectGrid"
+import { AnimatePresence } from "framer-motion"
+import ProjectModal from "./components/ProjecModal"
 
 const Projects: React.FC = () => {
 
-  const [selctedItem, setSelectedItem] = useState<ProjectItem | null>(null)
+  const [selectedItem, setSelectedItem] = useState<ProjectItem | null>(null)
 
   return (
     <Box sx={{ py: 10, position: "relative" }} >
@@ -27,7 +29,14 @@ const Projects: React.FC = () => {
           onSelect={setSelectedItem}
         />
       </Container>
-
+      <AnimatePresence>
+        {selectedItem && (
+          <ProjectModal
+            item={selectedItem}
+            onClose={() => setSelectedItem(null)}
+          />
+        )}
+      </AnimatePresence>
     </Box>
   )
 }
