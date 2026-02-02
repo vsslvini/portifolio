@@ -1,5 +1,3 @@
-import type { SvgIconProps } from "@mui/material";
-
 // Se você tiver ícones específicos, pode importar aqui ou usar strings mesmo.
 // Por enquanto vou usar strings para facilitar, e no componente a gente mapeia para ícones/badges.
 
