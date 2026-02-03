@@ -132,20 +132,37 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ item, onClose }) => {
         >
 
           {/* COLUNA 1: IMAGEM (Agora ocupa 50% em desktop para mais impacto) */}
+          {/* COLUNA 1: IMAGEM - Ajustada para não cortar prints mobile */}
           <Box sx={{
             width: { xs: "100%", md: "50%" },
-            minHeight: { xs: "300px", md: "auto" },
+            // Aumentamos um pouco a altura mínima no mobile para dar destaque ao print
+            minHeight: { xs: "400px", md: "auto" },
             borderRight: { md: "1px solid rgba(47, 138, 245, 0.2)" },
             borderBottom: { xs: "1px solid rgba(47, 138, 245, 0.2)", md: "none" },
             position: "relative",
-            bgcolor: "black",
-            overflow: "hidden"
+            bgcolor: "#05070a", // Fundo levemente azulado para o "vazio" da imagem
+            overflow: "hidden",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            // Se for Mobile, adicionamos um padding para o print não encostar nas bordas
+            p: item.category === "Mobile" ? 4 : 0,
           }}>
             {item.imageUrl ? (
-              <img
+              <motion.img
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 src={item.imageUrl}
                 alt={item.title}
-                style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  // A MÁGICA AQUI: 'contain' para Mobile (não corta) e 'cover' para o resto
+                  objectFit: item.category === "Mobile" ? "contain" : "cover",
+                  objectPosition: "center",
+                  // Filtro de sombra para dar profundidade ao print do celular
+                  filter: item.category === "Mobile" ? "drop-shadow(0 0 30px rgba(0,0,0,0.8))" : "none"
+                }}
               />
             ) : (
               <Box sx={{
@@ -153,8 +170,8 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ item, onClose }) => {
                 display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center",
                 background: "radial-gradient(circle at center, rgba(47,138,245,0.15) 0%, rgba(10,15,28,1) 70%)",
                 backgroundImage: `linear-gradient(rgba(47, 138, 245, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(47, 138, 245, 0.1) 1px, transparent 1px)`,
-                backgroundSize: "40px 40px" // Grid effect
+      linear-gradient(90deg, rgba(47, 138, 245, 0.1) 1px, transparent 1px)`,
+                backgroundSize: "40px 40px"
               }}>
                 <Typography variant="h6" sx={{ fontFamily: "monospace", color: techBlue }}>
                   [ NO_SIGNAL ]
@@ -164,14 +181,18 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ item, onClose }) => {
                 </Typography>
               </Box>
             )}
-            {/* Tech Overlay na imagem */}
+
+            {/* Overlay de gradiente - Suavizado para não cobrir o rodapé do print Mobile */}
             <Box sx={{
-              position: "absolute", bottom: 0, left: 0, right: 0,
-              height: "100px",
-              background: "linear-gradient(to top, #0a0f1c 0%, transparent 100%)"
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: "80px",
+              background: "linear-gradient(to top, #0a0f1c 0%, transparent 100%)",
+              pointerEvents: "none"
             }} />
           </Box>
-
           {/* COLUNA 2: DETALHES */}
           <Box sx={{
             width: { xs: "100%", md: "50%" },
