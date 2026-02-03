@@ -25,37 +25,48 @@ const About = () => {
           <Grid size={{ xs: 12, md: 7 }}>
             <Box display="flex" flexDirection="column" gap={3} sx={{
               px: { xs: 4, md: 0 },
-              textAlign: { xs: "center", md: "left"},
+              textAlign: { xs: "justify", md: "left" },
             }}>
-              {/* Label do topo - Usando subtitle1 (Mono) conforme seu tema */}
-              <Typography variant="subtitle1" color="primary">
-              // 01. About Me
-              </Typography>
-
-              <Typography
-                variant="h3"
+              <Box
+                display="flex" flexDirection="column" gap={3}
                 sx={{
-                  fontWeight: 700,
-                  color: theme.palette.text.primary
+                  px: { xs: 4, md: 0 },
+                  textAlign: { xs: "center", md: "left" }
                 }}
               >
-                Vinicius Alencar
-              </Typography>
 
-              {/* Subtítulo de Cargo */}
-              <Typography variant="h5" color="text.secondary" sx={{ fontWeight: 400 }}>
-                Software Engineer & Backend Specialist
-              </Typography>
+                <Typography variant="subtitle1" color="primary">
+              // 01. About Me
+                </Typography>
 
+                <Typography
+                  variant="h3"
+                  sx={{
+                    fontWeight: 700,
+                    color: theme.palette.text.primary
+                  }}
+                >
+                  Vinicius Alencar
+                </Typography>
+
+                {/* Subtítulo de Cargo */}
+                <Typography variant="h5" color="text.secondary" sx={{ fontWeight: 400 }}>
+                  Software Engineer & Backend Specialist
+                </Typography>
+
+              </Box>
+              {/* Label do topo - Usando subtitle1 (Mono) conforme seu tema */}
               {/* Texto Descritivo - Usando body1 (Inter, lineHeight 1.7) */}
               <Typography variant="body1" paragraph>
-                Sou Desenvolvedor de Software focado na construção de soluções robustas e escaláveis.
-                Minha atuação é guiada por uma visão sólida de <strong>Arquitetura de Software</strong> e <strong>Design Patterns</strong>.
+                Atuo como Engenheiro de Software focado no desenvolvimento de soluções completas e escaláveis. Com experiência prática em
+                <strong> React Native </strong>e <strong>Python</strong> , transformo requisitos complexos em aplicações robustas, cuidando
+                desde a arquitetura do banco de
+                dados até a interface final.
               </Typography>
 
               <Typography variant="body1">
-                Acredito que a excelência técnica vai além do código funcionando; está na estrutura, na manutenibilidade e na eficiência do sistema.
-                Com expertise em desenvolvimento Backend e Python, busco unir lógica de negócios a uma engenharia de alto nível.
+                Minha atuação combina a precisão técnica da Pesquisa e Desenvolvimento em IA com a agilidade necessária para o mercado.
+                Meu foco está na qualidade do código, padrões de projeto e na entrega de valor real através da tecnologia.
               </Typography>
 
             </Box>
