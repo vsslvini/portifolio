@@ -17,7 +17,7 @@ import { SectionFade } from "../../../../components/ui/SectionFade/SectionFade";
 const Hero = () => {
   return (
     <StyledHeroWrapper>
-      
+
       {/* 1. Camada de Fundo (Grid + Glow) */}
       <HeroBackground />
 
@@ -44,26 +44,29 @@ const Hero = () => {
           sx={{ position: "relative", zIndex: 10, mt: 4 }}
         >
           {/* Mantemos o component="a" para o link funcionar corretamente */}
-          <SocialButton 
-            component="a" 
-            href="https://github.com/vsslvini/" 
+          <SocialButton
+            // @ts-expect-error: Resolvendo conflito de tipagem do MUI para build
+            component="a"
+            href="https://github.com/vsslvini/"
             target="_blank"
             aria-label="GitHub"
           >
             <GitHubIcon />
           </SocialButton>
 
-          <SocialButton 
-            component="a" 
-            href="https://linkedin.com/in/vsslvini" 
+          <SocialButton
+            // @ts-expect-error: Resolvendo conflito de tipagem do MUI para build
+            component="a"
+            href="https://linkedin.com/in/vsslvini"
             target="_blank"
             aria-label="LinkedIn"
           >
             <LinkedInIcon />
           </SocialButton>
 
-          <SocialButton 
-            component="a" 
+          <SocialButton
+            // @ts-expect-error: Resolvendo conflito de tipagem do MUI para build
+            component="a"
             href="mailto:vsslviniciussousa@gmail.com"
             aria-label="Email"
           >
