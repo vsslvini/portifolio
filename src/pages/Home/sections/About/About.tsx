@@ -11,15 +11,29 @@ const About = () => {
         <Grid container spacing={8} alignItems="center">
 
           {/* Lado da imagem*/}
-
           <Grid size={{ xs: 12, md: 5 }}>
             <ProfileFrame>
-              <Typography variant="subtitle1" color="text.secondary" sx={{ opacity: 0.5 }}>
-                [NO_IMAGE_DATA]
-              </Typography>
+              <Box
+                component="img"
+                src="src/assets/images/eu.png"
+                alt="Vinicius Alencar"
+                sx={{
+                  width: "100%",
+                  height: "100%",
+                  // Mantém a proporção sem distorcer, focando no topo (rosto)
+                  objectFit: "cover",
+                  objectPosition: "top center",
+                  display: "block",
+                  filter: "grayscale(20%) contrast(110%)",
+                  transition: "0.4s ease-in-out",
+                  "&:hover": {
+                    filter: "none",
+                    transform: "scale(1.02)",
+                  }
+                }}
+              />
             </ProfileFrame>
           </Grid>
-
           {/* Lado da imagem*/}
 
           <Grid size={{ xs: 12, md: 7 }}>
