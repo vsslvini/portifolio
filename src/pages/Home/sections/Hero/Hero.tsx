@@ -1,122 +1,83 @@
-import { Box, Container, styled, Typography } from "@mui/material";
-import Grid from "@mui/material/Grid";
-import DownloadForOfflineIcon from "@mui/icons-material/DownloadForOffline";
-import EmailIcon from "@mui/icons-material/Email";
-import Avatar from "../../../../assets/images/avatar.jpeg";
-import StyledButton from "../../../../components/StyledButton/StyledButton";
-import { AnimatedBackground } from "../../../../components/AnimatedBackground";
+import { Typography, Stack } from "@mui/material";
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
+
+// --- IMPORTS MODULARES (Ajustados para a tua estrutura) ---
+
+// 1. Fundo (está na mesma pasta do Hero)
+import { HeroBackground, StyledHeroWrapper } from "./HeroBackground";
+
+// 2. Componentes UI Globais (navegamos 4 pastas para trás para chegar a src/components)
+import TechContainer from "../../../../components/ui/TechContainer/TechContainer";
+import ScrollIndicator from "../../../../components/ScrollIndicator/ScrollIndicator";
+import SocialButton from "../../../../components/SocialButton/SocialButton";
+import { SectionFade } from "../../../../components/ui/SectionFade/SectionFade";
 
 const Hero = () => {
-  const StyledHero = styled("div")(({ theme }) => ({
-    backgroundColor: theme.palette.primary.main,
-    color: "white",
-    minHeight: "100vh",
-    display: "flex",
-    alignItems: "center",
-    overflow: "hidden",
-    // [theme.breakpoints.up("xs")]: {
-    //   paddingTop: "100px",
-    //   backgroundColor: "red",
-    // },
-    // [theme.breakpoints.up("sm")]: {
-    //   paddingTop: "100px",
-    //   backgroundColor: "blue",
-    // },
-    // [theme.breakpoints.up("md")]: {
-    //   paddingTop: "100px",
-    //   backgroundColor: "blue",
-    // },
-  }));
-
-  const StyledImage = styled("img")(({ theme }) => ({
-    width: "80%",
-    borderRadius: "50%",
-    border: `1px solid ${theme.palette.primary.contrastText}`
-  }));
-
   return (
-    <>
-      <StyledHero>
-        <Container maxWidth="lg">
-          <Grid container spacing={2} alignItems="center">
+    <StyledHeroWrapper>
+      
+      {/* 1. Camada de Fundo (Grid + Glow) */}
+      <HeroBackground />
 
-            <Grid
-              size={{ xs: 12, md: 5 }}
-              display="flex"
-              justifyContent="center"
-              alignItems="center">
-              <Box position="relative">
-                <Box
-                  position="absolute"
-                  width={"150%"}
-                  right={0}
-                  top={-100}
-                  sx={{ transform: "translateX(15%)" }}
-                >
-                  <AnimatedBackground />
-                </Box>
-                <Box
-                  position="relative"
-                  sx={{ zIndex: 1 }}
-                  textAlign="center"
-                  display="flex"
-                  justifyContent="center"
-                >
-                  <StyledImage src={Avatar} />
-                </Box>
-              </Box>
-            </Grid>
+      {/* 2. Container Central com as Bordas Técnicas */}
+      <TechContainer>
 
-            <Grid size={{ xs: 12, md: 7 }}>
-              <Typography
-                color="primary.contrastText"
-                variant="h1"
-                textAlign={"center"}
-                pb={2}
-              >
-                Vinicius Alencar
-              </Typography>
-              <Typography
-                color="primary.contrastText"
-                variant="h2"
-                textAlign={"center"}
-                mb={4}>
-                I'm a Software Engineer
-              </Typography>
+        <Typography variant="subtitle1" gutterBottom>
+          Welcome to
+        </Typography>
 
+        <Typography variant="h1" gutterBottom>
+          Vinicius Alencar
+        </Typography>
 
-              <Grid container display="flex" justifyContent="center" spacing={3}>
-                <Grid
-                  size={{ xs: 12, md: 4 }}
-                  display="flex"
-                  justifyContent="center"
-                >
-                  <StyledButton onClick={() => console.log("Download")}>
-                    <DownloadForOfflineIcon />
-                    <Typography>
-                      Download CV
-                    </Typography>
-                  </StyledButton>
-                </Grid>
-                <Grid
-                  size={{ xs: 12, md: 4 }}
-                  display="flex"
-                  justifyContent="center"
-                >
-                  <StyledButton onClick={() => console.log("Contate  me")}>
-                    <EmailIcon />
-                    <Typography>
-                      Contact me
-                    </Typography>
-                  </StyledButton>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Container>
-      </StyledHero>
-    </>
-  );
-};
+        <Typography variant="h2" sx={{ mb: 4 }}>
+          &lt;Developer Portfolio /&gt;
+        </Typography>
+
+        {/* Barra Social */}
+        <Stack
+          direction="row"
+          spacing={2}
+          justifyContent="center"
+          sx={{ position: "relative", zIndex: 10, mt: 4 }}
+        >
+          {/* Mantemos o component="a" para o link funcionar corretamente */}
+          <SocialButton 
+            component="a" 
+            href="https://github.com/vsslvini/" 
+            target="_blank"
+            aria-label="GitHub"
+          >
+            <GitHubIcon />
+          </SocialButton>
+
+          <SocialButton 
+            component="a" 
+            href="https://linkedin.com/in/vsslvini" 
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <LinkedInIcon />
+          </SocialButton>
+
+          <SocialButton 
+            component="a" 
+            href="mailto:vsslviniciussousa@gmail.com"
+            aria-label="Email"
+          >
+            <EmailIcon />
+          </SocialButton>
+        </Stack>
+
+      </TechContainer>
+
+      {/* 3. Indicador de Scroll Animado */}
+      <ScrollIndicator />
+      <SectionFade />
+    </StyledHeroWrapper>
+  )
+}
 
 export default Hero;
