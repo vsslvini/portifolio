@@ -24,7 +24,7 @@ export const projectsData: ProjectItem[] = [
     techStack: ["React Native", "Expo Router", "SQLite", "TypeScript"],
     repoLink: "https://github.com/vsslvini/BizApp",
     highlight: "Arquitetura Offline-First com persistência local via SQLite e roteamento moderno com Expo Router.",
-    imageUrl: "src/assets/images/Home.png",
+    imageUrl: "images/Home.png",
   },
   {
     id: 2,
@@ -35,6 +35,6 @@ export const projectsData: ProjectItem[] = [
     techStack: ["Go (Golang)", "React", "TypeScript", "Docker", "Nginx"],
     repoLink: "https://github.com/vsslvini/Kanban",
     highlight: "Sistema containerizado com Docker Compose, utilizando Nginx como Proxy Reverso e backend em Go com controle de concorrência (Mutex).",
-    imageUrl: "src/assets/images/mini_kanban.png",
+    imageUrl: "images/mini_kanban.png",
   },
 ];

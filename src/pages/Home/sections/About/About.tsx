@@ -15,7 +15,7 @@ const About = () => {
             <ProfileFrame>
               <Box
                 component="img"
-                src="src/assets/images/eu.png"
+                src="images/eu.png"
                 alt="Vinicius Alencar"
                 sx={{
                   width: "100%",
