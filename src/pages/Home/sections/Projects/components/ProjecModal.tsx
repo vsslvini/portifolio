@@ -250,6 +250,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ item, onClose }) => {
                   target="_blank"
                   sx={{
                     py: 1.5,
+                    mb: 5,
                     borderColor: "gray", color: "white",
                     textTransform: "none", fontFamily: "monospace", fontSize: "1rem",
                     "&:hover": { borderColor: "white", bgcolor: "rgba(255,255,255,0.05)" }
