@@ -1,3 +1,4 @@
+
 // Se você tiver ícones específicos, pode importar aqui ou usar strings mesmo.
 // Por enquanto vou usar strings para facilitar, e no componente a gente mapeia para ícones/badges.
 
@@ -19,68 +20,21 @@ export const projectsData: ProjectItem[] = [
     title: "BizApp Mobile",
     category: "Mobile",
     description:
-      "Aplicação móvel para gestão de negócios locais. Focada em performance e usabilidade offline, permitindo que microempreendedores gerenciem vendas e estoque sem dependência constante de internet.",
-    techStack: ["React Native", "Expo", "SQLite", "TypeScript"],
-    repoLink: "https://github.com/seu-usuario/bizapp", // Substitua pelo real
-    highlight: "Arquitetura Offline-First com persistência local eficiente.",
-    imageUrl: "/images/bizapp-cover.png", // Coloque um print na pasta public/images
+      "Solução para gestão de microempreendimentos que permite o controle de vendas, estoque e clientes diretamente pelo celular. O foco principal é a autonomia do usuário em ambientes com conectividade limitada.",
+    techStack: ["React Native", "Expo Router", "SQLite", "TypeScript"],
+    repoLink: "https://github.com/vsslvini/BizApp",
+    highlight: "Arquitetura Offline-First com persistência local via SQLite e roteamento moderno com Expo Router.",
+    imageUrl: "/images/bizapp-cover.png",
   },
   {
     id: 2,
-    title: "BizApp Mobile",
-    category: "Mobile",
+    title: "Mini Kanban Fullstack",
+    category: "Fullstack",
     description:
-      "Aplicação móvel para gestão de negócios locais. Focada em performance e usabilidade offline, permitindo que microempreendedores gerenciem vendas e estoque sem dependência constante de internet.",
-    techStack: ["React Native", "Expo", "SQLite", "TypeScript"],
-    repoLink: "https://github.com/seu-usuario/bizapp", // Substitua pelo real
-    highlight: "Arquitetura Offline-First com persistência local eficiente.",
-    imageUrl: "/images/bizapp-cover.png", // Coloque um print na pasta public/images
+      "Gerenciador de tarefas baseado na metodologia Kanban. Possui suporte a temas (dark/light), persistência de dados e uma interface fluida com funcionalidades de arrastar e soltar.",
+    techStack: ["Go (Golang)", "React", "TypeScript", "Docker", "Nginx"],
+    repoLink: "https://github.com/vsslvini/Kanban",
+    highlight: "Sistema containerizado com Docker Compose, utilizando Nginx como Proxy Reverso e backend em Go com controle de concorrência (Mutex).",
+    imageUrl: "/images/kanban-cover.png",
   },
-  {
-    id: 3,
-    title: "BizApp Mobile",
-    category: "Mobile",
-    description:
-      "Aplicação móvel para gestão de negócios locais. Focada em performance e usabilidade offline, permitindo que microempreendedores gerenciem vendas e estoque sem dependência constante de internet.",
-    techStack: ["React Native", "Expo", "SQLite", "TypeScript"],
-    repoLink: "https://github.com/seu-usuario/bizapp", // Substitua pelo real
-    highlight: "Arquitetura Offline-First com persistência local eficiente.",
-    imageUrl: "/images/bizapp-cover.png", // Coloque um print na pasta public/images
-  },
-  {
-    id: 4,
-    title: "BizApp Mobile",
-    category: "Mobile",
-    description:
-      "Aplicação móvel para gestão de negócios locais. Focada em performance e usabilidade offline, permitindo que microempreendedores gerenciem vendas e estoque sem dependência constante de internet.",
-    techStack: ["React Native", "Expo", "SQLite", "TypeScript"],
-    repoLink: "https://github.com/seu-usuario/bizapp", // Substitua pelo real
-    highlight: "Arquitetura Offline-First com persistência local eficiente.",
-    imageUrl: "/images/bizapp-cover.png", // Coloque um print na pasta public/images
-  },
-{
-    id: 5,
-    title: "BizApp Mobile",
-    category: "Mobile",
-    description:
-      "Aplicação móvel para gestão de negócios locais. Focada em performance e usabilidade offline, permitindo que microempreendedores gerenciem vendas e estoque sem dependência constante de internet.",
-    techStack: ["React Native", "Expo", "SQLite", "TypeScript"],
-    repoLink: "https://github.com/seu-usuario/bizapp", // Substitua pelo real
-    highlight: "Arquitetura Offline-First com persistência local eficiente.",
-    imageUrl: "/images/bizapp-cover.png", // Coloque um print na pasta public/images
-  },
-
-  {
-    id: 6,
-    title: "BizApp Mobile",
-    category: "Mobile",
-    description:
-      "Aplicação móvel para gestão de negócios locais. Focada em performance e usabilidade offline, permitindo que microempreendedores gerenciem vendas e estoque sem dependência constante de internet.",
-    techStack: ["React Native", "Expo", "SQLite", "TypeScript"],
-    repoLink: "https://github.com/seu-usuario/bizapp", // Substitua pelo real
-    highlight: "Arquitetura Offline-First com persistência local eficiente.",
-    imageUrl: "/images/bizapp-cover.png", // Coloque um print na pasta public/images
-  },
-
-
 ];
