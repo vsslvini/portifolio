@@ -6,19 +6,7 @@
     </linearGradient>
 
     <style>
-      /* --- ANIMAÇÕES --- */
-      @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
-      }
-
-      /* Pulso do núcleo */
-      @keyframes pulse {
-        0%, 100% { transform: scale(1); opacity: 1; }
-        50% { transform: scale(0.85); opacity: 0.8; }
-      }
-
-      /* Truque para Chrome vs Firefox */
+      /* --- LÓGICA DE VISIBILIDADE (Mantida Original) --- */
       @keyframes vanish {
         0% { opacity: 1; }
         100% { opacity: 0; }
@@ -28,29 +16,52 @@
         100% { opacity: 1; }
       }
 
-      /* Camada Estática (O Cubo sem fundo) */
       .static-layer {
-        /* No Firefox, essa camada some instantaneamente */
         animation: vanish 0.01s linear forwards; 
       }
-
-      /* Camada Animada (O Spinner com fundo) */
       .animated-layer {
-        opacity: 0; /* Começa invisível pro Chrome não ver */
+        opacity: 0; 
         transform-origin: center;
-        /* No Firefox, aparece e começa a girar */
         animation: appear 0.01s linear forwards;
       }
 
-      .heavy-spinner {
-        transform-origin: center;
-        animation: spin 3s linear infinite;
-      }
+      /* --- NOVAS ANIMAÇÕES DO SPINNER --- */
       
+      /* Gira horário */
+      @keyframes spin-cw {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+
+      /* Gira anti-horário */
+      @keyframes spin-ccw {
+        from { transform: rotate(360deg); }
+        to { transform: rotate(0deg); }
+      }
+
+      /* Pulso refinado */
+      @keyframes pulse-smooth {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(0.9); opacity: 0.7; }
+      }
+
       .core-pulse {
         transform-origin: center;
         transform-box: fill-box;
-        animation: pulse 2s ease-in-out infinite;
+        animation: pulse-smooth 2s ease-in-out infinite;
+      }
+
+      /* Separei as animações dos anéis para ficarem mais complexas */
+      .ring-main {
+        transform-origin: center;
+        /* Acelera e freia (mais orgânico) */
+        animation: spin-cw 3s ease-in-out infinite; 
+      }
+
+      .ring-secondary {
+        transform-origin: center;
+        /* Gira ao contrário e constante */
+        animation: spin-ccw 4s linear infinite; 
       }
     </style>
   </defs>
@@ -74,9 +85,10 @@
     <circle cx="50" cy="50" r="18" fill="#2f8af5" class="core-pulse" />
     <circle cx="50" cy="50" r="8" fill="#ffffff" class="core-pulse" />
 
-    <g class="heavy-spinner">
-      <circle cx="50" cy="50" r="36" fill="none" stroke="#2f8af5" stroke-width="12" stroke-dasharray="60 160" stroke-linecap="round" />
-      <circle cx="50" cy="50" r="36" fill="none" stroke="#2f8af5" stroke-width="12" stroke-dasharray="30 190" stroke-dashoffset="-110" stroke-linecap="round" opacity="0.6" />
+    <g>
+      <circle class="ring-main" cx="50" cy="50" r="36" fill="none" stroke="#2f8af5" stroke-width="12" stroke-dasharray="60 160" stroke-linecap="round" />
+      
+      <circle class="ring-secondary" cx="50" cy="50" r="36" fill="none" stroke="#2f8af5" stroke-width="12" stroke-dasharray="30 190" stroke-dashoffset="-110" stroke-linecap="round" opacity="0.6" />
     </g>
   </g>
 
